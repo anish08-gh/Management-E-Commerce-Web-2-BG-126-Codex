@@ -1,262 +1,253 @@
-# Management-E-Commerce-Website
-# 🛒 ForgeCart – Frontend (Client Side UI Only)
+# ForgeCart
 
-## 📌 Overview
+ForgeCart is a polished e-commerce experience built for the BackForge Hackathon. It combines a modern storefront interface with a working backend so the project feels complete both as a product demo and as an engineering submission.
 
-**ForgeCart** is a frontend-only e-commerce web application developed for the **BackForge Hackathon**.
+The frontend is designed to feel fast, clean, and familiar to users. The backend turns that interface into a real application by powering authentication, cart persistence, checkout, and order history through a live API and MongoDB.
 
-It provides a complete **storefront UI prototype** that simulates a real-world shopping experience while leaving all backend logic—such as APIs, authentication, and database integration—to be implemented separately.
+## Frontend first
 
-This project is ideal for:
+### Product vision
 
-* Hackathon participants
-* Backend developers looking for a ready UI
-* Learning frontend architecture of e-commerce systems
+ForgeCart is designed as a hackathon-ready merchandise platform where users can:
 
----
+- Browse products from a responsive catalog
+- View detailed product pages
+- Register and log in
+- Add items to a personal cart
+- Complete checkout
+- Review previous orders
 
-## 🚀 Key Highlights
+The goal is not just to present screens, but to deliver a complete shopping flow with a strong presentation layer and real backend behavior behind it.
 
-* Modern **e-commerce UI/UX**
-* Fully **responsive design**
-* **Reusable components**
-* **Backend-ready structure**
-* Clean and scalable frontend architecture
+### User experience highlights
 
----
+- Responsive multi-page storefront
+- Search and category-based product discovery
+- Product-focused card layout and detail views
+- Clean checkout flow
+- Order history visibility for authenticated users
+- Persistent login and cart continuity
 
-## 🏗️ System Architecture
+### Frontend stack
 
-ForgeCart follows a **static multi-page architecture**:
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Font Awesome
 
-* Each feature has its own HTML page
-* Shared styling via a global CSS file
-* No backend or API integration
-* Static placeholder data
+### Frontend architecture
 
-### 🔹 Architecture Layers
+The UI follows a static multi-page structure:
 
-**1. UI Layer**
+- `index.html` for catalog browsing
+- `product.html` for product details
+- `cart.html` for cart management
+- `checkout.html` for order placement
+- `orders.html` for order history
+- `login.html` and `register.html` for authentication
 
-* HTML5 (structure)
-* CSS (styling)
-* Font Awesome (icons)
+Shared browser-side behavior is handled through:
 
-**2. Logic Layer**
+- `js/api.js` for API communication and token handling
+- `js/main.js` for page bootstrapping and user interaction logic
+- `css/styles.css` for global styling and responsive behavior
 
-* Minimal / no JavaScript
-* No real functionality implemented
+### Why this presentation works for a demo
 
-**3. Data Layer**
+For judging, the frontend matters because it is the first proof of product thinking. ForgeCart is structured to show:
 
-* No database
-* Static product and order data
+- Clear navigation and flow
+- Real user journeys instead of isolated pages
+- Consistent branding and interface language
+- A UI that is not just decorative, but connected to working backend behavior
 
----
+## Project structure
 
-## 🛍️ Features & Modules
-
-### 🏠 Landing & Product Listing
-
-* Hero section
-* Product grid layout
-* Search bar UI
-* Category filters (UI only)
-* Featured products
-
----
-
-### 📦 Product Details
-
-* Product image gallery
-* Pricing section
-* Specifications
-* Add to Cart & Buy Now buttons
-
----
-
-### 🛒 Cart
-
-* Item listing
-* Quantity controls (UI)
-* Remove item option
-* Price summary
-* Checkout button
-
----
-
-### 💳 Checkout
-
-* Shipping form
-* Payment form
-* Order summary
-* Place Order button
-
----
-
-### 📜 Orders
-
-* Order history UI
-* Status tracking
-* Timestamps
-* Order summary
-
----
-
-### 🔐 Authentication
-
-* Login page
-* Registration page
-* User onboarding UI
-
-> ⚠️ Note: Authentication is UI-only. No real login system is implemented.
-
----
-
-## 🎨 UI/UX Design
-
-### Design Principles
-
-* Glassmorphism UI
-* Modern storefront feel
-* Clean and minimal navigation
-* Mobile-first responsiveness
-
-### Styling
-
-* Dark theme
-* Orange accent highlights
-* Rounded components
-* Shadows & hover effects
-
-### Interactions
-
-* Smooth transitions
-* Hover animations
-* Interactive form styling
-
----
-
-## 📐 Layout Structure
-
-* Multi-page navigation
-* Consistent header & footer
-* Grid-based product layout
-* Responsive design across devices
-
----
-
-## 🧰 Tech Stack
-
-* **HTML5**
-* **CSS3**
-* **Font Awesome 6.4.0**
-* **Google Fonts**
-
-  * Outfit
-  * Inter
-
----
-
-## 📁 Project Structure
-
-```
-/
-├── index.html        # Landing / Product Listing
-├── product.html      # Product Details
-├── cart.html         # Cart Page
-├── checkout.html     # Checkout Flow
-├── orders.html       # Order History
-├── login.html        # Login Page
-├── register.html     # Registration Page
-├── style.css         # Global Styles
-├── assets/           # Images & Media
-└── components/       # Reusable UI Components
+```text
+Management-E-Commerce-Web-2/
+|-- assets/                # Images and visual assets
+|-- css/
+|   `-- styles.css         # Shared frontend styling
+|-- js/
+|   |-- api.js             # API wrapper and auth token management
+|   `-- main.js            # Page-level UI behavior
+|-- scripts/
+|   `-- bootstrapMongo.js  # Product bootstrap script for MongoDB
+|-- cart.html
+|-- checkout.html
+|-- index.html
+|-- login.html
+|-- orders.html
+|-- product.html
+|-- register.html
+|-- server.js              # Express server and API implementation
+|-- package.json
+|-- .env.example
+`-- README.md
 ```
 
----
+## Running the project
 
-## 📱 Responsiveness
+### Prerequisites
 
-ForgeCart is optimized for:
+- Node.js 18+ recommended
+- MongoDB running locally or a valid MongoDB connection string
 
-* Desktop 💻
-* Tablet 📱
-* Mobile 📲
+### Environment variables
 
-Built using:
+Create a `.env` file from `.env.example`:
 
-* CSS Grid
-* Flexbox
-* Mobile-first approach
+```env
+MONGODB_URI=mongodb://127.0.0.1:27017/forgecart
+PORT=3000
+AUTH_TOKEN_TTL_DAYS=7
+```
 
----
+### Local setup
 
-## ⚠️ Limitations
+```bash
+npm install
+npm run bootstrap
+npm start
+```
 
-This project is **frontend-only** and does NOT include:
+Open `http://localhost:3000`.
 
-* Backend integration
-* API connectivity
-* Database storage
-* Authentication system
-* Cart persistence
-* Order processing
-* Search functionality
-* Filtering logic
-* Inventory management
+## Backend implementation
 
----
+### Backend overview
 
-## 🔮 Future Enhancements
+The backend is implemented with Express and MongoDB. It serves the frontend files and exposes the REST API used by the UI. This means the application runs as a single integrated system rather than a disconnected frontend mockup.
 
-* Backend API integration
-* JWT/session authentication
-* Dynamic product catalog
-* Real-time search
-* Advanced filtering
-* Persistent cart
-* Payment gateway integration
-* Order & inventory management
-* Wishlist system
-* Reviews & ratings
-* Personalized dashboards
+### Backend stack
 
----
+- Node.js
+- Express
+- MongoDB
+- Mongoose
+- bcryptjs
+- dotenv
 
-## 🎯 Purpose
+### Backend responsibilities
 
-ForgeCart is designed to:
+The backend currently handles:
 
-* Provide a **ready-to-use frontend**
-* Accelerate **hackathon development**
-* Help teams focus on **backend implementation**
+- User registration
+- Secure password storage
+- Persistent login sessions
+- Product retrieval with filtering and search
+- Cart creation and updates
+- Checkout and order creation
+- Order history retrieval
+- Static asset and page serving
 
----
+### Request lifecycle
 
-## 🏁 Conclusion
+1. The browser sends requests through `window.ForgeApi.request(...)`.
+2. Requests target `/api/*` routes on the same server origin.
+3. Protected endpoints read the bearer token from the `Authorization` header.
+4. The server hashes the token and resolves the session from MongoDB.
+5. The server loads the authenticated user and executes the requested business logic.
+6. JSON responses are returned to the frontend and rendered in the UI.
 
-ForgeCart serves as a **complete UI foundation** for building a full-stack e-commerce platform.
+### Authentication design
 
-It enables developers to:
+ForgeCart uses persistent bearer-session authentication backed by MongoDB.
 
-* Skip UI development time
-* Focus on backend logic
-* Integrate APIs seamlessly
+- Passwords are stored using `bcrypt`
+- Login generates a random session token
+- Only the SHA-256 hash of the token is stored in MongoDB
+- Sessions survive server restarts because they are database-backed
+- Logout removes the current session from the database
+- Expired sessions are cleaned automatically using a MongoDB TTL index
+- Older legacy SHA-256 password hashes are upgraded to bcrypt after successful login
 
----
+This approach gives the project a stronger security story than plain local storage auth or in-memory session state.
 
-## 🤝 Contribution
+### Data model
 
-This project is part of the **BackForge Hackathon ecosystem**.
-Feel free to fork, extend, and integrate your backend solutions.
+The backend works with these collections:
 
----
+- `products`
+  - `id`, `name`, `category`, `price`, `image`, `description`, `inStock`
+- `users`
+  - `id`, `name`, `email`, `passwordHash`, `createdAt`
+- `carts`
+  - `userId`, `items[]`
+- `orders`
+  - `id`, `userId`, `timestamp`, `status`, `items[]`, `total`, `shipping`
+- `sessions`
+  - `tokenHash`, `userId`, `expiresAt`, `createdAt`
 
-## 📜 License
+### API surface
 
-This project is open for educational and hackathon use.
+#### Health
 
----
+- `GET /api/health`
 
-💡 *Build fast. Ship faster. Forge better.*
+#### Auth
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/auth/logout`
+- `GET /api/auth/me`
+
+#### Products
+
+- `GET /api/products`
+- `GET /api/products/:id`
+
+Supported product query parameters:
+
+- `search`
+- `category`
+
+#### Cart
+
+- `GET /api/cart`
+- `POST /api/cart/items`
+- `PATCH /api/cart/items/:productId`
+- `DELETE /api/cart/items/:productId`
+
+#### Orders
+
+- `POST /api/orders`
+- `GET /api/orders`
+
+### Product bootstrap
+
+`npm run bootstrap` upserts the product catalog into MongoDB. It is safe to run multiple times and is meant to initialize or refresh products without wiping users, carts, orders, or sessions.
+
+### Operational notes
+
+- The same Express app serves both the frontend and the API
+- Auth sessions persist across server restarts
+- The old JSON-file storage approach is no longer the active backend architecture
+- MongoDB TTL cleanup is asynchronous, so expired sessions may remain briefly before cleanup runs
+
+### Security notes
+
+- Passwords are never stored in plaintext
+- Session tokens are not stored directly in the database
+- Protected routes require a valid bearer token
+
+Current demo limitations:
+
+- No rate limiting yet
+- No CSRF protection layer
+- No password reset or email verification flow
+- No role-based admin authorization yet
+- No automated test suite yet
+
+## Why this project stands out
+
+ForgeCart is not just a styled storefront and not just a backend API. It demonstrates both product presentation and implementation depth:
+
+- A frontend that is demo-ready and easy to evaluate visually
+- A backend that makes the flow real, persistent, and technically credible
+- Clear full-stack integration from browser interaction to database state
+- A structure that is practical for hackathon judging and extensible after the event
+
+## License
+
+This project is available for educational and hackathon use.
